@@ -7,9 +7,6 @@
 # prompt. Any segment you add must be present in the segments/ directory
 
 SEGMENTS = [
-# Show current virtual environment (see http://www.virtualenv.org/)
-    'virtual_env',
-
 # Show the current user's username as in ordinary prompts
     'username',
 
@@ -26,6 +23,9 @@ SEGMENTS = [
 
 # Show number of running jobs
     'jobs',
+
+# Show an idicator for the user
+    'root',
 ]
 
 # Change the colors used to draw individual segments in your prompt

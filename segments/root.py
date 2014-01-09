@@ -1,14 +1,16 @@
+import os
+
 def add_root_indicator_segment():
-    root_indicators = {
-        'bash': ' \\$ ',
-        'zsh': ' \\$ ',
-        'bare': ' $ ',
-    }
-    bg = Color.CMD_PASSED_BG
-    fg = Color.CMD_PASSED_FG
-    if powerline.args.prev_error != 0:
-        fg = Color.CMD_FAILED_FG
-        bg = Color.CMD_FAILED_BG
-    powerline.append(root_indicators[powerline.args.shell], fg, bg)
+    root = os.getenv('USER') == 'root'
+    admin = os.getenv('ADMIN')
+    background = Color.ROOT_BG if root else Color.USERNAME_BG
+
+    if root and admin:
+        powerline.append('', Color.USERNAME_FG, background, powerline.separator_thin, Color.SEPARATOR_FG)
+    else:
+        powerline.append('', Color.USERNAME_FG, background)
+
+    if admin:
+        powerline.append('', Color.USERNAME_FG, Color.ROOT_BG)
 
 add_root_indicator_segment()

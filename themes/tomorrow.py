@@ -3,6 +3,7 @@
 class Color(DefaultColor):
     USERNAME_FG = 0
     USERNAME_BG = 4
+    ROOT_BG = 1
     USERNAME_SEPARATOR = 9
 
     HOSTNAME_FG = -1 # no color
@@ -14,7 +15,7 @@ class Color(DefaultColor):
     CWD_FG = -1  # no color
     SEPARATOR_FG = 7
 
-    READONLY_BG = 1
+    READONLY_BG = 11
     READONLY_FG = 0
 
     REPO_CLEAN_BG = 2  # green
