@@ -1,7 +1,7 @@
 import os
 
 def add_root_indicator_segment():
-    root = os.getenv('USER') == 'root'
+    root = os.getuid() == 0
     admin = os.getenv('ADMIN')
     background = Color.ROOT_BG if root else Color.USERNAME_BG
 

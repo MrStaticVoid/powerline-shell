@@ -1,8 +1,9 @@
 
 import os
+import pwd
 
 def add_username_segment():
-    user = os.getenv('USER')
+    user = pwd.getpwuid(os.getuid())[0]
 
     if user not in ['root', 'jlee', 'jtl']:
         if powerline.args.shell == 'bash':
