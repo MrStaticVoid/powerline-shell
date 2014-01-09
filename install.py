@@ -28,13 +28,7 @@ if __name__ == "__main__":
     source += load_source(os.path.join(THEMES_DIR, config.THEME + '.py'))
     for segment in config.SEGMENTS:
         source += load_source(os.path.join(SEGMENTS_DIR, segment + '.py'))
-    source += '''
-output = powerline.draw()
-try:
-    sys.stdout.buffer.write(output)
-except AttributeError:
-    sys.stdout.write(output)
-'''
+    source += 'sys.stdout.buffer.write(powerline.draw())\n'
 
     try:
         open(OUTPUT_FILE, 'w').write(source)
